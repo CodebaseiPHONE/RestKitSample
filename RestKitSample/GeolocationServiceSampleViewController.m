@@ -42,6 +42,8 @@
                                                                // Do something.
                                                                NSLog(@"result error");
                                                            }];
+    
+    [self displayDataCount];
 }
 -(void)displayDataCount
 {

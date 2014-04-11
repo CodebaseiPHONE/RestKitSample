@@ -23,6 +23,7 @@
 + (RKEntityMapping *) responseMapping {
     // Create an object mapping.
     RKEntityMapping *mapping = [RKEntityMapping mappingForEntityForName:@"Gist" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
+//    mapping.identificationAttributes = @[@"objectID"];
     [mapping addAttributeMappingsFromDictionary:[Gist getKeyMapping]];
     
     // Add some relation mappings (if any.)
@@ -33,8 +34,8 @@
 + (NSDictionary*)getKeyMapping {
     return @{
              @"url": @"url",
-             @"forks_url": @"forkURL",
-             @"commits_url": @"commitURL",
+             @"forks_url": @"forkUrl",
+             @"commits_url": @"commitUrl",
 //             @"id":@"objectId",
              };
 }

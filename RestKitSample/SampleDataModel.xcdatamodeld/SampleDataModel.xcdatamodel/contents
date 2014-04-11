@@ -3,7 +3,6 @@
     <entity name="Gist" representedClassName="Gist" syncable="YES">
         <attribute name="commitUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="forkUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
