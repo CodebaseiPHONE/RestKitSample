@@ -8,8 +8,10 @@
 
 #import "GistModel.h"
 #import "RKObjectManager.h"
+#import "RKRelationshipMapping.h"
+#include "UserModel.h"
 @implementation GistModel
-@synthesize commitURL,forkURL,objectID,url;
+@synthesize commitURL,forkURL,objectID,url,userModel;
 
 + (NSDictionary*)getKeyMapping {
     return @{
@@ -26,7 +28,9 @@
     
     // Add some relation mappings (if any.)
 //    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"repositories" toKeyPath:@"repositories" withMapping:[GMRepository responseMapping]]];
-    
+    [mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user"
+                                                                                toKeyPath:@"userModel"
+                                                                              withMapping:[UserModel responseMapping]]];
     return mapping;
 }
 

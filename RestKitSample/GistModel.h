@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "RKObjectMapping.h"
+#import "UserModel.h"
 @interface GistModel : NSObject
 @property(strong,nonatomic) NSString* objectID;
 @property(strong,nonatomic) NSString* url;
 @property(strong,nonatomic) NSString* forkURL;
 @property(strong,nonatomic) NSString* commitURL;
-
+@property(strong,nonatomic) UserModel* userModel;
 + (RKObjectMapping *) responseMapping;
 @end

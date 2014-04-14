@@ -74,6 +74,9 @@ static RestSharedClient *sharedClient = nil;
     
     // NSObject mapping
     RKObjectMapping *userMapping = [GistModel responseMapping];
+    
+    
+    
     RKResponseDescriptor *listUsersResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:userMapping method:RKRequestMethodGET pathPattern:@"gists/public" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:listUsersResponseDescriptor];
   

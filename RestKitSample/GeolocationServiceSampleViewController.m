@@ -11,6 +11,7 @@
 #import "RKObjectManager.h"
 #import "Gist.h"
 #import "GeolocationServiceSampleAppDelegate.h"
+#import "GistModel.h"
 @interface GeolocationServiceSampleViewController ()
 
 @end
@@ -37,6 +38,14 @@
                                                                // Do something with mappingResult.array.
                                                                
                                                                NSLog(@"result came count %d",[mappingResult.array count]);
+                                                               for(GistModel* gistObj in mappingResult.array)
+                                                               {
+                                                                   UserModel* userObj = gistObj.userModel;
+                                                                   
+                                                                   NSLog(@"\nUser is %@",userObj.login);
+                                                               }
+                                                               
+                                                               
                                                            }
                                                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                                // Do something.
