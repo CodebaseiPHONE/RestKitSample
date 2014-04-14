@@ -12,6 +12,7 @@
 #import "Gist.h"
 #import "GeolocationServiceSampleAppDelegate.h"
 #import "GistModel.h"
+#import "User.h"
 @interface GeolocationServiceSampleViewController ()
 
 @end
@@ -38,11 +39,11 @@
                                                                // Do something with mappingResult.array.
                                                                
                                                                NSLog(@"result came count %d",[mappingResult.array count]);
-                                                               for(GistModel* gistObj in mappingResult.array)
+                                                               for(Gist* gistObj in mappingResult.array)
                                                                {
-                                                                   UserModel* userObj = gistObj.userModel;
+                                                                   User* userObj = gistObj.user;
                                                                    
-                                                                   NSLog(@"\nUser is %@",userObj.login);
+                                                                   NSLog(@"\nUser is %@",userObj.avatarUrl);
                                                                }
                                                                
                                                                

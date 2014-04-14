@@ -54,12 +54,11 @@ static RestSharedClient *sharedClient = nil;
 }
 
 
-
 - (void)initializeObjectManagers {
     // Uncomment below to enable rest kit logging.
     RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
-  
-
+    
+    
     // Configure the object manager.
     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"https://api.github.com/"]];
     objectManager.requestSerializationMIMEType = RKMIMETypeJSON;
@@ -67,50 +66,50 @@ static RestSharedClient *sharedClient = nil;
     
     // -- Declare routes -- //
     
-    // List users route. We create a named route here.
     [objectManager.router.routeSet addRoute:[RKRoute routeWithName:kRestClientListGistRouteName pathPattern:@"gists/public" method:RKRequestMethodGET]];
     
     
     
     // NSObject mapping
-    RKObjectMapping *userMapping = [GistModel responseMapping];
+//    RKObjectMapping *userMapping = [GistModel responseMapping];
+//    RKResponseDescriptor *listUsersResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:userMapping method:RKRequestMethodGET pathPattern:@"gists/public" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+//    [objectManager addResponseDescriptor:listUsersResponseDescriptor];
     
     
+    [self setupRKEntity];
     
-    RKResponseDescriptor *listUsersResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:userMapping method:RKRequestMethodGET pathPattern:@"gists/public" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    [objectManager addResponseDescriptor:listUsersResponseDescriptor];
-  
+    //NSManaged Object Mapping
+    RKEntityMapping *mapping = [Gist responseMapping];
+    RKResponseDescriptor *gistResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:@"gists/public" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:gistResponseDescriptor];
     
-    
-
-        //NSManaged Object Mapping
-//    RKEntityMapping *mapping = [RKEntityMapping mappingForEntityForName:@"Gist" inManagedObjectStore:self.amanagedObjectStore];
-//    [mapping addAttributeMappingsFromDictionary:[Gist getKeyMapping]];
-//    RKResponseDescriptor *gistResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodGET pathPattern:@"gists/public" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-//    [objectManager addResponseDescriptor:gistResponseDescriptor];
-
     
     
     
 }
 
 
-//- (void)setup {
-//    GeolocationServiceSampleAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-//     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:appDelegate.managedObjectModel];
-//    self.amanagedObjectStore = managedObjectStore;
-//    
-//    NSString *path = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"SampleDataModel.sqlite"];
-//    NSLog(@"Setting up store at %@", path);
-//    [managedObjectStore addSQLitePersistentStoreAtPath:path
-//                              fromSeedDatabaseAtPath:nil
-//                                   withConfiguration:nil
-//                                             options:nil
-//                                               error:nil];
-//    [managedObjectStore createManagedObjectContexts];
-//    [managedObjectStore createPersistentStoreCoordinator];
-//        [RKManagedObjectStore setDefaultStore:managedObjectStore];
-//}
+- (void)setupRKEntity {
+    GeolocationServiceSampleAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:appDelegate.managedObjectModel];
+    self.amanagedObjectStore = managedObjectStore;
+    [RKManagedObjectStore setDefaultStore:managedObjectStore];
+    [RKObjectManager sharedManager].managedObjectStore = managedObjectStore;
+    
+    
+    
+    NSString *path = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"SampleDataModel.sqlite"];
+    NSLog(@"Setting up store at %@", path);
+    [managedObjectStore addSQLitePersistentStoreAtPath:path
+                                fromSeedDatabaseAtPath:nil
+                                     withConfiguration:nil
+                                               options:nil
+                                                 error:nil];
+    [managedObjectStore createManagedObjectContexts];
+    [managedObjectStore createPersistentStoreCoordinator];
+    
+    
+}
 
 
 @end

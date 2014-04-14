@@ -2,13 +2,16 @@
 //  Gist.h
 //  RestKitSample
 //
-//  Created by dbgmacmini2 dbg on 09/04/14.
+//  Created by dbgmacmini2 dbg on 14/04/14.
 //  Copyright (c) 2014 codebase. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-@class RKEntityMapping;
+#import "RKEntityMapping.h"
+#import "RKObjectManager.h"
+#import "RKManagedObjectStore.h"
+@class User;
 
 @interface Gist : NSManagedObject
 
@@ -16,7 +19,6 @@
 @property (nonatomic, retain) NSString * forkUrl;
 @property (nonatomic, retain) NSString * objectId;
 @property (nonatomic, retain) NSString * url;
-+(Gist*)getDataModel:(NSManagedObjectContext*)context;
-+ (NSDictionary*)getKeyMapping;
-//+ (RKEntityMapping *) responseMapping;
+@property (nonatomic, retain) User *user;
++ (RKEntityMapping *) responseMapping ;
 @end

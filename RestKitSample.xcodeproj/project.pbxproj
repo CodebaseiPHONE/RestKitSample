@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B7D8DE618F52546005A6E0C /* Gist.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D8DE518F52546005A6E0C /* Gist.m */; };
+		9B6BE57818FBFD9C00A10676 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BE57718FBFD9C00A10676 /* User.m */; };
+		9B6BE57B18FC048800A10676 /* Gist.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6BE57A18FC048800A10676 /* Gist.m */; };
 		9B7D8DE818F5280C005A6E0C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7D8DE718F5280C005A6E0C /* CoreData.framework */; };
 		9B7F47FB18EDA27500D3C375 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7F47FA18EDA27500D3C375 /* Foundation.framework */; };
 		9B7F47FD18EDA27500D3C375 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7F47FC18EDA27500D3C375 /* CoreGraphics.framework */; };
@@ -43,8 +44,10 @@
 
 /* Begin PBXFileReference section */
 		2B13C961EB8540BE807A7CA6 /* libPods-RestKitSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RestKitSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B7D8DE418F52546005A6E0C /* Gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gist.h; sourceTree = "<group>"; };
-		9B7D8DE518F52546005A6E0C /* Gist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gist.m; sourceTree = "<group>"; };
+		9B6BE57618FBFD9C00A10676 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9B6BE57718FBFD9C00A10676 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9B6BE57918FC048800A10676 /* Gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gist.h; sourceTree = "<group>"; };
+		9B6BE57A18FC048800A10676 /* Gist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gist.m; sourceTree = "<group>"; };
 		9B7D8DE718F5280C005A6E0C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9B7F47F718EDA27500D3C375 /* RestKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B7F47FA18EDA27500D3C375 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,9 +118,11 @@
 		9B513A5518F7B16B001AB896 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				9B7D8DE518F52546005A6E0C /* Gist.m */,
-				9B7D8DE418F52546005A6E0C /* Gist.h */,
 				9BDEF4CE18F51233008CD7F1 /* SampleDataModel.xcdatamodeld */,
+				9B6BE57918FC048800A10676 /* Gist.h */,
+				9B6BE57A18FC048800A10676 /* Gist.m */,
+				9B6BE57618FBFD9C00A10676 /* User.h */,
+				9B6BE57718FBFD9C00A10676 /* User.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -371,8 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B6BE57B18FC048800A10676 /* Gist.m in Sources */,
+				9B6BE57818FBFD9C00A10676 /* User.m in Sources */,
 				9BDEF4CD18F4111D008CD7F1 /* GistResponse.m in Sources */,
-				9B7D8DE618F52546005A6E0C /* Gist.m in Sources */,
 				9BDEF4D018F51233008CD7F1 /* SampleDataModel.xcdatamodeld in Sources */,
 				9B7F481118EDA27500D3C375 /* GeolocationServiceSampleViewController.m in Sources */,
 				9BDEF4C718F4042C008CD7F1 /* UserModel.m in Sources */,
